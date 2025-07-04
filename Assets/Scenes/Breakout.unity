@@ -642,6 +642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42aa4aff8de746d0908a0029dc96280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRigidbody2D: {fileID: 1366862453}
+  speed: 3
 --- !u!1 &1627239461
 GameObject:
   m_ObjectHideFlags: 0
