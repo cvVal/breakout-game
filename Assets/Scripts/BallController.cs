@@ -14,6 +14,20 @@ public class BallController : MonoBehaviour
         LaunchBall();
     }
 
+    // FixedUpdate is called at a fixed interval and is used for physics calculations
+    private void FixedUpdate()
+    {
+        /* 
+            Ensure the ball's velocity is normalized to maintain a consistent speed.
+            The linearVelocity property represents the object's current velocity as a Vector2, 
+            which contains both direction and magnitude (speed).
+            The key operation here is .normalized, which converts the velocity vector into a unit vector 
+            - meaning it maintains the same direction but reduces the magnitude to exactly 1. 
+            This effectively separates the direction from the speed.
+        */
+        myRigidbody2D.linearVelocity = myRigidbody2D.linearVelocity.normalized * speed;
+    }
+
     // Update is called once per frame
     public void LaunchBall()
     {
