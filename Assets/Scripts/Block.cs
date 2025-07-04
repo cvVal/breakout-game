@@ -3,12 +3,16 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     [SerializeField] int health = 1;
+    [SerializeField] int points = 100;
+
     SpriteRenderer spriteRenderer;
+    GameManager gameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        gameManager = FindFirstObjectByType<GameManager>();
     }
 
     // Update is called once per frame
@@ -24,6 +28,7 @@ public class Block : MonoBehaviour
         {
             // Decrease the health of the block
             health--;
+            gameManager.AddScore(points); // Add score to the game manager
 
             switch (health)
             {
