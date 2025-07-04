@@ -32,7 +32,7 @@ This is a Unity implementation of the classic arcade game Breakout, where player
 
 ## How to Play
 
-- Use **Left/Right** arrow keys to move the paddle
+- Use **Left/Right** arrow keys or **A/D** keys to move the paddle
 - Keep the ball in play by bouncing it off your paddle
 - Destroy all blocks to win the level
 - Don't let the ball fall off the bottom of the screen!
