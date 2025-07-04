@@ -21,18 +21,24 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleInput();
+    }
+
+    // FixedUpdate is called at a fixed interval and is used for physics calculations
+    private void FixedUpdate()
+    {
+        // Apply the movement to the Rigidbody2D
         myRigidbody2D.linearVelocity = new Vector2(direction * speed, 0);
     }
 
     void HandleInput()
     {
-        // Check for Left Arrow key
-        if (Keyboard.current.leftArrowKey.isPressed)
+        // Check for Left Arrow key or A key
+        if (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed)
         {
             direction = -1f;
         }
-        // Check for Right Arrow key
-        else if (Keyboard.current.rightArrowKey.isPressed)
+        // Check for Right Arrow key or D key
+        else if (Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed)
         {
             direction = 1f;
         }
