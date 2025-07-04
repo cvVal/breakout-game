@@ -4,6 +4,7 @@ public class BallController : MonoBehaviour
 {
     Rigidbody2D myRigidbody2D;
     [SerializeField] float speed = 5f;
+    [SerializeField] GameManager gameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -62,5 +63,14 @@ public class BallController : MonoBehaviour
         // Ensure the Rigidbody2D component is assigned
         // Initialize the ball's velocity to move to the right
         myRigidbody2D.linearVelocity = new Vector2(x, 1f) * speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Check if the collided object is the KillBox
+        if (collision.gameObject.CompareTag("KillBox"))
+        {
+            gameManager.RemoveLife();
+        }
     }
 }
