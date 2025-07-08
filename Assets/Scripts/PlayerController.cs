@@ -9,12 +9,13 @@ public class PlayerController : MonoBehaviour
 
     // Stores direction of movement
     float direction;
+    Vector2 initialPosition;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        initialPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -47,5 +48,10 @@ public class PlayerController : MonoBehaviour
         {
             direction = 0f;
         }
+    }
+
+    public void ResetPlayer()
+    {
+        transform.position = initialPosition;
     }
 }

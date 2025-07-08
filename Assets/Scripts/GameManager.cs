@@ -4,6 +4,8 @@ public class GameManager : MonoBehaviour
 {
     int score = 0;
     [SerializeField] int lives = 3;
+    [SerializeField] BallController ballController;
+    [SerializeField] PlayerController playerController;
 
     public void AddScore(int points)
     {
@@ -21,6 +23,13 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("Lives remaining: " + lives);
+            ResetGame();
         }
+    }
+
+    void ResetGame()
+    {
+        ballController.LaunchBall();
+        playerController.ResetPlayer();
     }
 }

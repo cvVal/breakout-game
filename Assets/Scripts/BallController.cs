@@ -3,6 +3,8 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     Rigidbody2D myRigidbody2D;
+    Vector2 initialPosition;
+
     [SerializeField] float speed = 5f;
     [SerializeField] GameManager gameManager;
 
@@ -11,7 +13,7 @@ public class BallController : MonoBehaviour
     {
         // Get the Rigidbody2D component attached to this GameObject
         myRigidbody2D = GetComponent<Rigidbody2D>();
-
+        initialPosition = transform.position;
         LaunchBall();
     }
 
@@ -33,7 +35,7 @@ public class BallController : MonoBehaviour
     public void LaunchBall()
     {
         // Reset ball position to center
-        transform.position = Vector2.zero;
+        transform.position = initialPosition;
 
         float x = 0;
 
