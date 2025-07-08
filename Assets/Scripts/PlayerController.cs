@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     // Stores direction of movement
     float direction;
     Vector2 initialPosition;
+    public bool isAlive = true;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,7 +22,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandleInput();
+        // Handle player input for movement
+        if (isAlive)
+            HandleInput();
+
     }
 
     // FixedUpdate is called at a fixed interval and is used for physics calculations

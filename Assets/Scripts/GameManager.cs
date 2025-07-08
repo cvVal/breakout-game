@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -42,10 +43,19 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         winPanel.SetActive(true);
+        playerController.isAlive = false; // Set player to not alive
+        ballController.StopBall(); // Stop the ball
     }
 
     void GameOver()
     {
         gameOverPanel.SetActive(true);
+        playerController.isAlive = false; // Set player to not alive
+        ballController.StopBall(); // Stop the ball
+    }
+
+    public void RestartCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

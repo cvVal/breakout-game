@@ -75,4 +75,9 @@ public class BallController : MonoBehaviour
             gameManager.RemoveLife();
         }
     }
+
+    public void StopBall()
+    {
+        Destroy(gameObject); // Destroy the ball
+    }
 }
