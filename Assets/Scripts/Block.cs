@@ -42,7 +42,12 @@ public class Block : MonoBehaviour
                     spriteRenderer.color = Color.yellow; // Low health
                     break;
                 default:
-                    Destroy(gameObject); // No health left
+                    if (transform.parent.childCount <= 1)
+                    {
+                       gameManager.WinGame(); // If this is the last block, win the game
+
+                    }
+                    Destroy(gameObject); // Destroy the block
                     /* 
                     Optionally, you can add a delay before destroying the block by passing the unit of time in seconds
                     Destroy(gameObject, 2f);
