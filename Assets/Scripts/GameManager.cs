@@ -9,18 +9,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] BallController ballController;
     [SerializeField] PlayerController playerController;
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI livesText;
     [SerializeField] GameObject winPanel;
     [SerializeField] GameObject gameOverPanel;
 
     public void AddScore(int points)
     {
         score += points;
-        scoreText.text = score.ToString();
+        scoreText.text = "Score: " + score.ToString();
     }
 
     public void RemoveLife()
     {
         lives--;
+        livesText.text = "Lives: " + lives.ToString();
         if (lives <= 0)
         {
             // Handle game over

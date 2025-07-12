@@ -6,14 +6,17 @@ public class Block : MonoBehaviour
     [SerializeField] int points = 100;
     [SerializeField] bool isBonusBlock = false; // Mark this as a bonus block
     [SerializeField] int bonusPoints = 20; // Extra points for bonus blocks
+    [SerializeField] AudioClip hitSound; // Sound to play on hit
 
     SpriteRenderer spriteRenderer;
     GameManager gameManager;
+    AudioSource audioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
         gameManager = FindFirstObjectByType<GameManager>();
     }
 
@@ -44,6 +47,12 @@ public class Block : MonoBehaviour
             return;
         }
         
+        // Play sound
+        if (hitSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(hitSound);
+        }
+        
         // Always award regular points for hitting the block
         gameManager.AddScore(points);
         
@@ -51,7 +60,6 @@ public class Block : MonoBehaviour
         if (isBonusBlock)
         {
             gameManager.AddScore(bonusPoints);
-            Debug.Log($"Bonus block hit! +{bonusPoints} bonus points (Health: {health})");
         }
         
         // Decrease the health of the block
@@ -63,7 +71,8 @@ public class Block : MonoBehaviour
         // Check for destruction
         if (health <= 0)
         {
-            HandleBlockDestruction();
+            // Add a small delay to let the sound play before destroying
+            Invoke(nameof(HandleBlockDestruction), 0.1f);
         }
     }
     
