@@ -4,7 +4,15 @@ A classic Breakout game built with Unity.
 
 ## About
 
-This is a Unity implementation of the classic arcade game Breakout, where players control a paddle to bounce a ball and destroy blocks.
+This is a Unity implementation of the classic arcade game Breakout. Players control a paddle to bounce a ball and destroy blocks. The game includes persistent data storage, player name tracking, and bonus block mechanics.
+
+## Features
+
+- **Classic Breakout Gameplay**: Control a paddle to keep the ball in play and destroy all blocks
+- **Bonus Block System**: Special blocks with multiple hit points for extra scoring opportunities
+- **Persistent Scoring**: Your scores are saved between game sessions
+- **Player Profiles**: Enter your name or play anonymously
+- **Cross-Scene Data**: Scores and player data persist across menu and game scenes
 
 ## Getting Started
 
@@ -32,7 +40,14 @@ This is a Unity implementation of the classic arcade game Breakout, where player
 
 ## How to Play
 
-- Use **Left/Right** arrow keys or **A/D** keys to move the paddle
+### Controls
+- **Left/Right** arrow keys or **A/D** keys to move the paddle
+- **Enter** to confirm name input
+- **Mouse** to interact with menu buttons
+
+### Gameplay
 - Keep the ball in play by bouncing it off your paddle
-- Destroy all blocks to win the level
+- Destroy all regular blocks to complete the level
+- **Regular blocks**: Destroyed in three, two or one hit
+- **Bonus blocks**: Require multiple hits but give extra points
 - Don't let the ball fall off the bottom of the screen!
