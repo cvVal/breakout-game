@@ -44,16 +44,26 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
+        // Save the final score before showing win panel
+        GameData.SetLastScore(score);
+        
         winPanel.SetActive(true);
         playerController.isAlive = false; // Set player to not alive
         ballController.StopBall(); // Stop the ball
+        
+        Debug.Log($"Game won with score: {score}");
     }
 
     void GameOver()
     {
+        // Save the final score before showing game over panel
+        GameData.SetLastScore(score);
+        
         gameOverPanel.SetActive(true);
         playerController.isAlive = false; // Set player to not alive
         ballController.StopBall(); // Stop the ball
+        
+        Debug.Log($"Game over with score: {score}");
     }
 
     public void RestartCurrentScene()
